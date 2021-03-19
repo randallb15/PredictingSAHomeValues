@@ -21,6 +21,16 @@ First things first, the data was explored to find out what is being worked with.
 
 The data was obtained from www.redfin.com and downloaded using a free user account.  This data does not represent the total number of houses sold but does represent over half of the houses sold. A distribution of houses across most of San Antonio was attempted, but there will be some areas that are not represented in the data.
 
+### Correlations
+
+The data was found to have some features that were highly correlated.  Sale Price is highly correlated with the number of baths and square feet and the square feet is highly correlated with sale price, the number of beds and the number of baths.
+
+In order to deal with these correlations, a new feature was created.  This feature was 'the number of rooms per sqft (multiplied by 1000)'.  This was created by adding the number of bedrooms and bathrooms and dividing by the total number of square feet.  It was found that this metric was 99.9% correlated with the price per square foot number.  This makes a lot of sense because as the number of beds goes up, the price should go up.  And as it is all normalized by square foot, it should be even more correlated.
+
+### Neighborhoods
+
+There were a lot of different neighborhoods or locations in the 'LOCATION' column.  Location is not very specific, so there were over 2000 different entries in the dataset.  In order to get something more manageable, I filtered by the 'location' where the sale date was over 100.  That means that houses were sold in that area over 100 different days in the last three years.  This narrowed the dataset down to 73 different 'locations'.
+
 #### Plots of Important Features
 
 See below for plots

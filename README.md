@@ -31,6 +31,21 @@ In order to deal with these correlations, a new feature was created.  This featu
 
 There were a lot of different neighborhoods or locations in the 'LOCATION' column.  Location is not very specific, so there were over 2000 different entries in the dataset.  In order to get something more manageable, I filtered by the 'location' where the sale date was over 100.  That means that houses were sold in that area over 100 different days in the last three years.  This narrowed the dataset down to 73 different 'locations'.
 
+#### One-hot-encoding Neighborhoods
+
+### Sold Date
+
+Used datetime feature to separate out month and year from data
+
+## Model
+
+Initial Random Forest Classifier Model
+
+### Special Considerations
+
+- Stratified K Fold to take into consideration the imbalanced dataset
+- 
+
 #### Plots of Important Features
 
 See below for plots

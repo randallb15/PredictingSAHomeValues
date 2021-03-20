@@ -22,6 +22,6 @@ from sklearn.ensemble import GradientBoostingClassifier, GradientBoostingRegress
 from sklearn.tree import DecisionTreeRegressor, DecisionTreeClassifier
 
 from sklearn.metrics import mean_squared_error, r2_score
-from sklearn.metrics import precision_recall_curve, roc_curve, confusion_matrix, classification_report
+from sklearn.metrics import precision_recall_curve, roc_curve, confusion_matrix, classification_report,precision_score,recall_score,accuracy_score,roc_auc_score, f1_score
 from sklearn.utils import resample
 from sklearn.utils.class_weight import compute_class_weight

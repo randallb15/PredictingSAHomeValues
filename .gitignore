@@ -132,3 +132,4 @@ dmypy.json
 img/
 data/
 .DS_Stores
+.txt

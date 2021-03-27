@@ -65,7 +65,7 @@ Upon initial inspection, there were several columns that immediately could be dr
 
 The initial goal of the project was to look at days on the market and predict the price that would allow you to sell your house within 30 or 60 days.  However, when looking at the 'DAYS ON MARKET' column in the data, it appeared that this data was incorrect and could not be used.  The 'DAYS ON MARKET' number was actually just the number of days between the 'SOLD DATE' and the date the data was downloaded (see graph below for visual).  Therefore, this column was dropped.
 
-!["DAYS ON MARKET" plot](img/soldplot.png)
+![DAYS ON MARKET plot](img/soldplot.png)
 
 #### Correlations
 

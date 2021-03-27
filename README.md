@@ -69,7 +69,16 @@ The initial goal of the project was to look at days on the market and predict th
 
 #### Correlations
 
-It was important to look at which of these features may be highly correlated and theref
+It was important to look at which of these features may be highly correlated and therefore should be combined or taken out.  Some of the largest correlations are shown below:
+
+|             |      PRICE |       BEDS |      BATHS |   SQUARE FEET |
+|:------------|-----------:|-----------:|-----------:|--------------:|
+| PRICE       | nan        | nan        |   0.615053 |      0.744923 |
+| BEDS        | nan        | nan        |   0.61592  |      0.667653 |
+| BATHS       |   0.615053 |   0.61592  | nan        |      0.792935 |
+| SQUARE FEET |   0.744923 |   0.667653 |   0.792935 |    nan        |
+
+
 
 
 

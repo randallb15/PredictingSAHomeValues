@@ -129,5 +129,6 @@ dmypy.json
 .pyre/
 
 #data
+img/
 data/
 .DS_Stores

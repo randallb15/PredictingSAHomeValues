@@ -1,0 +1,9 @@
+Still to do:
+1. update README - get pictures working
+2. Slides outline
+3. Pick Model
+4. Feature Importances slide
+5. Compare Accuracies in model
+6. Dash??
+7. Clean everything up
+8. ONE CLEANING NOTEBOOK - have rooms and square feet separate - save as model.pkl

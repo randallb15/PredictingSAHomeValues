@@ -1,4 +1,5 @@
-%run src/imports.py
+import glob
+import pandas as pd
 
 path =r'/Users/randallbloomquist/Desktop/Desktop/Galvanize/CAPSTONES/Sell Your Home in 30 days/data'
 all_files = glob.glob(path + "/*.csv")

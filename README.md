@@ -78,7 +78,7 @@ It was important to look at which of these features may be highly correlated and
 | BATHS       |   0.615053 |   0.61592  | nan        |      0.792935 |
 | SQUARE FEET |   0.744923 |   0.667653 |   0.792935 |    nan        |
 
-
+Since beds and baths are highly correlated, and baths and square feet are highly correlated, I wanted to combine them all into one feature.  To do this, I made a feature called 'ROOMS PER SQFT * 1000'.  This added the number of bedrooms and bathrooms and divided by the total number of square feet.  In order to get a number that is more easily comparab
 
 
 

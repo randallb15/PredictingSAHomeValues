@@ -100,6 +100,8 @@ Since beds and baths are highly correlated, and baths and square feet are highly
 
 1. Deploy model on AWS with inputs to predict home value
 2. Use geocoder to turn address into LAT/LONG for model
+3. Use h2o.ai random forest regressor to better handle categorical variables, specifically neighborhood
+
 
 
 

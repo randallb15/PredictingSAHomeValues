@@ -28,3 +28,17 @@ def calculate_ten_percent(y_predict,y_test):
             underten.append(i)
     percent_under_ten = len(underten)/len(differences)
     return percent_under_ten * 100
+
+def calculate_twenty_percent(y_predict,y_test):
+    differences = ((np.abs(y_predict - y_test))/y_test) * 100
+    differences = ['{:f}'.format(item) for item in differences]
+    undertwenty = []
+    overtwenty = []
+    for i in differences:
+        i = float(i)
+        if i >= 20.0:
+            overtwenty.append(i)
+        else:
+            undertwenty.append(i)
+    percent_under_twenty = len(undertwenty)/len(differences)
+    return percent_under_twenty * 100

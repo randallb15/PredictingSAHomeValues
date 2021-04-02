@@ -7,7 +7,9 @@ import seaborn as sns
 import plotly.express as px
 import plotly.graph_objects as go
 import re
+import h2o
 
+from h2o.estimators import H2ORandomForestEstimator
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split, KFold, StratifiedKFold, cross_val_score, GridSearchCV
 from sklearn.datasets import make_classification

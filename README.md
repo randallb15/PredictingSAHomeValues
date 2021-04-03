@@ -90,6 +90,18 @@ First, I ran a feature importance and a permutation importance on the full 11 fe
 
 ![Permutation Importances](img/permimportances.png)
 
+I then ran both analyses with the square feet variable taken out.
+
+![Feature Importances](img/FI2.png)
+
+![Permutation Importances](img/permimportances2.png)
+
+I also ran both analyses with the rooms variable removed.
+
+![Feature Importances](img/FI3.png)
+
+![Permutation Importances](img/permimportances3.png)
+
 
 
 

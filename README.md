@@ -78,12 +78,17 @@ It was important to look at which of these features may be highly correlated and
 | BATHS       |   0.615053 |   0.61592  | nan        |      0.792935 |
 | SQUARE FEET |   0.744923 |   0.667653 |   0.792935 |    nan        |
 
-Since beds and baths are highly correlated, and baths and square feet are highly correlated, I wanted to combine them all into one feature.  To do this, I made a feature called 'ROOMS PER SQFT * 1000'.  This added the number of bedrooms and bathrooms and divided by the total number of square feet.  In order to get a number that is more easily comparab
-
+Since beds and baths are highly correlated, I combined them into one feature, called rooms.  I also decided to run a feature importance and permutation importance with square feet taken out.
 
 ### Feature Importances
 
+When looking at feature importances, highly-correlated features can skew the results.  So I ran the importance a few different ways.
 
+First, I ran a feature importance and a permutation importance on the full 11 features (without the one-hot encoded neighborhood feature).  This is shown below:
+
+![Feature Importances](img/featureimportances2.png)
+
+![Permutation Importances](img/permimportances.png)
 
 
 

@@ -27,11 +27,11 @@ def get_new_data():
         <form action="/predict" method='POST'>
           House Address:
           <br>
-          <input type="text" name="Address"> 
+          <input type="str" name="Address"> 
           <br>
           Bedrooms:
           <br>
-          <input type="text" name="Bedrooms"> 
+          <input type="int" name="Bedrooms"> 
           <br>
           Bathrooms:
           <br>
@@ -51,7 +51,7 @@ def get_new_data():
           <br>
           Year Built:
           <br>
-          <input type="text" name="Year Built"> 
+          <input type="text" name="Year"> 
           <br>
           Lot Size:
           <br>
@@ -65,7 +65,7 @@ def get_new_data():
 @app.route('/predict', methods = ["GET", "POST"])
 def predict():
     # request the text from the form 
-    Address = float(request.form['Address'])
+    Address = str(request.form['Address'])
     Bedrooms = float(request.form['Bedrooms'])
     Bathrooms = float(request.form['Bathrooms'])
     # Neighborhood = float(request.form['Neighborhood'])
@@ -73,12 +73,13 @@ def predict():
     SqFt = float(request.form['Square Feet'])
     Year = float(request.form['Year'])
     Lot = float(request.form['Lot Size'])
-    Date = date.today()
+    Month = date.today().month()
+    Yeartoday = date.today.year()
     #Placeholders for latitude and longitude and HOA
     Lat = 29.483
     Long = -98.51
     HOA = 0 
-    X_n = np.array([[Zip, SqFt, Lot, Year, HOA, Lat, Long, (Bedrooms+Bathrooms), Month,Year]])
+    X_n = np.array([[Zip, SqFt, Lot, Year, HOA, Lat, Long, (Bedrooms+Bathrooms), Month,Yeartoday]])
     
     # predict on the new data
     Y_pred = model.predict(X_n)

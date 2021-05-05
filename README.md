@@ -130,3 +130,10 @@ After running different models and adjusting hyperparameters, I found that a Ran
 4. Deploy model on AWS with inputs to predict home value
 5. Use geocoder to turn address into LAT/LONG for model
 6. Use h2o.ai random forest regressor to better handle categorical variables, specifically neighborhood
+
+## Flask App
+
+In order to make the flask app, three things had to happen:
+1. Train the model in a python file and `pickle` the fitted model.
+2. Put the pickled model on the server with the web app.
+3. In the flask python file, unpickle the model and use it to predict.

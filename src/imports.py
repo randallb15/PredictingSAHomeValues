@@ -8,6 +8,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 import re
 import h2o
+import pickle
 
 from h2o.estimators import H2ORandomForestEstimator
 from sklearn.preprocessing import StandardScaler

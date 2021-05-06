@@ -73,8 +73,8 @@ def predict():
     SqFt = float(request.form['Square Feet'])
     Year = float(request.form['Year'])
     Lot = float(request.form['Lot Size'])
-    Month = date.today().month()
-    Yeartoday = date.today.year()
+    Month = date.today().month
+    Yeartoday = date.today().year
     #Placeholders for latitude and longitude and HOA
     Lat = 29.483
     Long = -98.51
@@ -116,9 +116,9 @@ def predict():
     out = image.getvalue(), 200, {'Content-Type': 'image/png'}
     '''
     
-    out = Y_pred
+    out = str(Y_pred)
     
-    return out
+    return '${}'.format(out[0])
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080, debug=True)

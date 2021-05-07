@@ -7,3 +7,7 @@ Still to do:
 6. Dash??
 7. Clean everything up
 8. ONE CLEANING NOTEBOOK - have rooms and square feet separate - save as model.pkl
+
+
+As of 05-06
+1. get API working to translate address to latitude and longitude

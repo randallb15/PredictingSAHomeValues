@@ -118,7 +118,7 @@ def predict():
     
     out = str(Y_pred)
     
-    return '${}'.format(out[0])
+    return '${}'.format(out)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080, debug=True)

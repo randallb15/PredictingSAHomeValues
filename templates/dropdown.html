@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dropdown</title>
+</head>
+<body>
+<select name= locations_list method="GET" action="/">
+    {% for location in locations_list %}
+    <option value= "{{location}}" SELECTED>{{location}}</option>"
+    {% endfor %}
+</select>
+
+</select>
+</body>
+</html>

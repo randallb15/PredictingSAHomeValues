@@ -1,7 +1,8 @@
 
-from flask import Flask, request
+from flask import Flask, request, render_template, url_for, redirect
 import pickle
 import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
 from io import BytesIO
 from datetime import date
@@ -12,6 +13,14 @@ app = Flask(__name__)
 # load the pickled model
 with open('data/model_rfr_full.pkl', 'rb') as f:
     model = pickle.load(f)
+    
+flaskdf = pd.read_pickle('data/flaskdf.pkl')
+locations_list = flaskdf.LOCATION.unique()
+locations_list.sort()
+
+zips_list = flaskdf['ZIP OR POSTAL CODE'].unique()
+zips_list.sort()
+
 
 # # load the pickled training data to display with prediction
 # with open('data/trainXY.pkl', 'rb') as f:
@@ -23,6 +32,7 @@ with open('data/model_rfr_full.pkl', 'rb') as f:
 # Home page with form on it to submit new data
 @app.route('/')
 def get_new_data():
+    
     return '''
         <form action="/predict" method='POST'>
           House Address:
@@ -61,6 +71,18 @@ def get_new_data():
           <input type="submit" value="Submit for house price estimation">
         </form>
         '''
+def dropdown():
+    flaskdf = pd.read_pickle('data/flaskdf.pkl')
+    locations_list = flaskdf.LOCATION.unique()
+    locations_list.sort()
+#     zips = zips_list
+    return render_template('dropdown.html', locations_list=locations_list)
+
+# @app.route('/dropdown', methods=['GET'])
+# def dropdown():
+#     neighborhoods = locations_list
+#     zips = zips_list
+#     return render_template('dropdown.html', locations_list=locations_list)
 
 @app.route('/predict', methods = ["GET", "POST"])
 def predict():

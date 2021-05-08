@@ -33,50 +33,58 @@ zips_list.sort()
 @app.route('/')
 def get_new_data():
     
-    return '''
-        <form action="/predict" method='POST'>
-          House Address:
-          <br>
-          <input type="str" name="Address"> 
-          <br>
-          Bedrooms:
-          <br>
-          <input type="int" name="Bedrooms"> 
-          <br>
-          Bathrooms:
-          <br>
-          <input type="text" name="Bathrooms"> 
-          <br>
-          Neighborhood:
-          <br>
-          <input type="text" name="Neighborhood"> 
-          <br>
-          Zip Code:
-          <br>
-          <input type="text" name="Zip Code"> 
-          <br>
-          Square Feet:
-          <br>
-          <input type="text" name="Square Feet"> 
-          <br>
-          Year Built:
-          <br>
-          <input type="text" name="Year"> 
-          <br>
-          Lot Size:
-          <br>
-          <input type="text" name="Lot Size"> 
-          <br>
-          <br>
-          <input type="submit" value="Submit for house price estimation">
-        </form>
-        '''
-def dropdown():
+
     flaskdf = pd.read_pickle('data/flaskdf.pkl')
     locations_list = flaskdf.LOCATION.unique()
     locations_list.sort()
-#     zips = zips_list
+    #     zips = zips_list
     return render_template('dropdown.html', locations_list=locations_list)
+#        '''
+#         <form action="/predict" method='POST'>
+#           House Address:
+#           <br>
+#           <input type="str" name="Address"> 
+#           <br>
+#           Bedrooms:
+#           <br>
+#           <input type="int" name="Bedrooms"> 
+#           <br>
+#           Bathrooms:
+#           <br>
+#           <input type="text" name="Bathrooms"> 
+#           <br>
+#           Neighborhood:
+#           <br>
+#           <input type="text" name="Neighborhood"> 
+#           <br>
+#           Zip Code:
+#           <br>
+#           <input type="text" name="Zip Code"> 
+#           <br>
+#           Square Feet:
+#           <br>
+#           <input type="text" name="Square Feet"> 
+#           <br>
+#           Year Built:
+#           <br>
+#           <input type="text" name="Year"> 
+#           <br>
+#           Lot Size:
+#           <br>
+#           <input type="text" name="Lot Size"> 
+#           <br>
+#           <br>
+#           <input type="submit" value="Submit for house price estimation">
+#         </form>
+#         '''
+    
+
+# def dropdown():
+#     flaskdf = pd.read_pickle('data/flaskdf.pkl')
+#     locations_list = flaskdf.LOCATION.unique()
+#     locations_list.sort()
+# #     zips = zips_list
+#     return render_template('dropdown.html', locations_list=locations_list)
 
 # @app.route('/dropdown', methods=['GET'])
 # def dropdown():

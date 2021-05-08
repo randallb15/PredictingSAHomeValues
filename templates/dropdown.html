@@ -5,11 +5,53 @@
     <title>Dropdown</title>
 </head>
 <body>
-<select name= locations_list method="GET" action="/">
+
+<form action="/predict" method='POST'>
+    House Address:
+    <br>
+    <input type="str" name="Address"> 
+    <br>
+    Bedrooms:
+    <br>
+    <input type="int" name="Bedrooms"> 
+    <br>
+    Bathrooms:
+    <br>
+    <input type="text" name="Bathrooms"> 
+    <br>
+    Neighborhood:
+    <br>
+    <select name= locations_list method="GET" action="/">
+        {% for location in locations_list %}
+        <option value= "{{location}}" SELECTED>{{location}}</option>"
+        {% endfor %}
+    </select>
+    <br>
+    Zip Code:
+    <br>
+    <input type="text" name="Zip Code"> 
+    <br>
+    Square Feet:
+    <br>
+    <input type="text" name="Square Feet"> 
+    <br>
+    Year Built:
+    <br>
+    <input type="text" name="Year"> 
+    <br>
+    Lot Size:
+    <br>
+    <input type="text" name="Lot Size"> 
+    <br>
+    <br>
+    <input type="submit" value="Submit for house price estimation">
+</form>
+    
+<!-- <select name= locations_list method="GET" action="/">
     {% for location in locations_list %}
     <option value= "{{location}}" SELECTED>{{location}}</option>"
     {% endfor %}
-</select>
+</select> -->
 
 </select>
 </body>

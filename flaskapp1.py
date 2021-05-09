@@ -55,7 +55,7 @@ def predict():
     Neighborhood = (request.form['locations_list'])
     Zip = float(request.form['Zip Code'])
     SqFt = float(request.form['Square Feet'])
-    Year = float(request.form['Year'])
+    YearBuilt = float(request.form['YearBuilt'])
     Lot = float(request.form['Lot Size'])
     Month = date.today().month
     Yeartoday = date.today().year
@@ -78,9 +78,10 @@ def predict():
     oneline.at[oneline.index,'HOA/MONTH'] = HOA
     oneline.at[oneline.index,'LATITUDE'] = Lat
     oneline.at[oneline.index,'LONGITUDE'] = Long
+    oneline.at[oneline.index,'YEAR BUILT'] = YearBuilt
     oneline_array = oneline.to_numpy()
     
-    X_n = np.array([[Zip, SqFt, Lot, Year, HOA, Lat, Long, (Bedrooms+Bathrooms), Month,Yeartoday]])
+    #X_n = np.array([[Zip, SqFt, Lot, Year, HOA, Lat, Long, (Bedrooms+Bathrooms), Month,Yeartoday]])
     
     # predict on the new data
     Y_pred = model.predict(oneline_array)

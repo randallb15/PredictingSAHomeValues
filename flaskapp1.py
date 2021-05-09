@@ -6,12 +6,13 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from io import BytesIO
 from datetime import date
+import random
 
 # Initialize app
 app = Flask(__name__)
 
 # load the pickled model
-with open('data/model_rfr_full.pkl', 'rb') as f:
+with open('data/model_rfr_locations.pkl', 'rb') as f:
     model = pickle.load(f)
     
 flaskdf = pd.read_pickle('data/flaskdf.pkl')
@@ -20,6 +21,10 @@ locations_list.sort()
 
 zips_list = flaskdf['ZIP OR POSTAL CODE'].unique()
 zips_list.sort()
+
+
+#N = random.choice(locations_list)
+
 
 
 # # load the pickled training data to display with prediction
@@ -39,58 +44,7 @@ def get_new_data():
     locations_list.sort()
     #     zips = zips_list
     return render_template('dropdown.html', locations_list=locations_list)
-#        '''
-#         <form action="/predict" method='POST'>
-#           House Address:
-#           <br>
-#           <input type="str" name="Address"> 
-#           <br>
-#           Bedrooms:
-#           <br>
-#           <input type="int" name="Bedrooms"> 
-#           <br>
-#           Bathrooms:
-#           <br>
-#           <input type="text" name="Bathrooms"> 
-#           <br>
-#           Neighborhood:
-#           <br>
-#           <input type="text" name="Neighborhood"> 
-#           <br>
-#           Zip Code:
-#           <br>
-#           <input type="text" name="Zip Code"> 
-#           <br>
-#           Square Feet:
-#           <br>
-#           <input type="text" name="Square Feet"> 
-#           <br>
-#           Year Built:
-#           <br>
-#           <input type="text" name="Year"> 
-#           <br>
-#           Lot Size:
-#           <br>
-#           <input type="text" name="Lot Size"> 
-#           <br>
-#           <br>
-#           <input type="submit" value="Submit for house price estimation">
-#         </form>
-#         '''
-    
 
-# def dropdown():
-#     flaskdf = pd.read_pickle('data/flaskdf.pkl')
-#     locations_list = flaskdf.LOCATION.unique()
-#     locations_list.sort()
-# #     zips = zips_list
-#     return render_template('dropdown.html', locations_list=locations_list)
-
-# @app.route('/dropdown', methods=['GET'])
-# def dropdown():
-#     neighborhoods = locations_list
-#     zips = zips_list
-#     return render_template('dropdown.html', locations_list=locations_list)
 
 @app.route('/predict', methods = ["GET", "POST"])
 def predict():
@@ -98,7 +52,7 @@ def predict():
     Address = str(request.form['Address'])
     Bedrooms = float(request.form['Bedrooms'])
     Bathrooms = float(request.form['Bathrooms'])
-    # Neighborhood = float(request.form['Neighborhood'])
+    Neighborhood = (request.form['locations_list'])
     Zip = float(request.form['Zip Code'])
     SqFt = float(request.form['Square Feet'])
     Year = float(request.form['Year'])
@@ -109,10 +63,27 @@ def predict():
     Lat = 29.483
     Long = -98.51
     HOA = 0 
+
+    locations_df = pd.read_pickle('data/locations_df.pkl')
+    oneline = locations_df.sample().drop('PRICE',axis=1)
+    for col in oneline.columns:
+        oneline[col].values[:] = 0
+    oneline.at[oneline.index,Neighborhood] = 1
+    oneline.at[oneline.index,'SQUARE FEET'] = SqFt
+    oneline.at[oneline.index,'ROOMS'] = Bedrooms + Bathrooms
+    oneline.at[oneline.index,'ZIP OR POSTAL CODE'] = Zip
+    oneline.at[oneline.index,'YEAR'] = Yeartoday
+    oneline.at[oneline.index,'MONTH'] = Month
+    oneline.at[oneline.index,'LOT SIZE'] = Lot
+    oneline.at[oneline.index,'HOA/MONTH'] = HOA
+    oneline.at[oneline.index,'LATITUDE'] = Lat
+    oneline.at[oneline.index,'LONGITUDE'] = Long
+    oneline_array = oneline.to_numpy()
+    
     X_n = np.array([[Zip, SqFt, Lot, Year, HOA, Lat, Long, (Bedrooms+Bathrooms), Month,Yeartoday]])
     
     # predict on the new data
-    Y_pred = model.predict(X_n)
+    Y_pred = model.predict(oneline_array)
 
     '''
     # for plotting 
@@ -147,8 +118,9 @@ def predict():
     '''
     
     out = str(Y_pred)
+    N = str(Neighborhood)
     
-    return '${}'.format(out)
+    return '${}'.format(out, N)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080, debug=True)

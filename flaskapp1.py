@@ -71,9 +71,9 @@ def predict():
     oneline.at[oneline.index,Neighborhood] = 1
     oneline.at[oneline.index,'SQUARE FEET'] = SqFt
     oneline.at[oneline.index,'ROOMS'] = Bedrooms + Bathrooms
-    oneline.at[oneline.index,'ZIP OR POSTAL CODE'] = Zip
-    oneline.at[oneline.index,'YEAR'] = Yeartoday
-    oneline.at[oneline.index,'MONTH'] = Month
+#    oneline.at[oneline.index,'ZIP OR POSTAL CODE'] = Zip
+    oneline.at[oneline.index,2021] = 1
+#    oneline.at[oneline.index,'MONTH'] = Month
     oneline.at[oneline.index,'LOT SIZE'] = Lot
     oneline.at[oneline.index,'HOA/MONTH'] = HOA
     oneline.at[oneline.index,'LATITUDE'] = Lat
@@ -120,7 +120,7 @@ def predict():
     
     out = str(Y_pred)
     N = str(Neighborhood)
-    
+#    return oneline
     return '${}'.format(out, N)
 
 if __name__ == '__main__':

@@ -43,7 +43,7 @@ def get_new_data():
     locations_list = flaskdf.LOCATION.unique()
     locations_list.sort()
     #     zips = zips_list
-    return render_template('INPUTS.html', locations_list=locations_list)
+    return render_template('dropdown.html', locations_list=locations_list)
 
 
 @app.route('/predict', methods = ["GET", "POST"])

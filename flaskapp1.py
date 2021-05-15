@@ -9,7 +9,7 @@ from datetime import date
 import random
 
 # Initialize app
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/static/')
 
 # load the pickled model
 with open('data/model_rfr_locations.pkl', 'rb') as f:
@@ -121,7 +121,9 @@ def predict():
     out = str(Y_pred)
     N = str(Neighborhood)
 #    return oneline
-    return '${}'.format(out, N)
+#    return '${}'.format(out, N)
+    return render_template('index.html', locations_list=locations_list)
 
 if __name__ == '__main__':
+    #app.static_folder = 'static'
     app.run(host='0.0.0.0', port=8080, debug=True)

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Simple login form</title>
+    <title>Input</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
     <style>
       html, body {
@@ -9,9 +9,16 @@
       justify-content: center;
       font-family: Roboto, Arial, sans-serif;
       font-size: 15px;
+      background-image: url('static/images/images/background.jpg');
+      height: 100%; 
+      /* Center and scale the image nicely */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
       }
       form {
       border: 5px solid #f1f1f1;
+      background-color: #ccc;
       }
       input[type=text], input[type=password] {
       width: 100%;
@@ -33,6 +40,7 @@
       h1 {
       text-align:center;
       font-size:18;
+      background-color: #ccc;
       }
       button:hover {
       opacity: 0.8;
@@ -55,15 +63,15 @@
       span.psw {
       display: block;
       float: none;
-      }
+      }}
     </style>
   </head>
   <body>
     <form action="/predict" method="POST">
       <h1>Enter House Info:</h1>
-      <div class="formcontainer">
+      <div class="formcontainer" style="background-color: #ccc;">
       <hr/>
-      <div class="container">
+      <div class="container" style="background-color: #ccc;">
         <label for="Address"><strong>Address</strong></label>
         <input type="text" placeholder="Enter Address" name="Address" required>
         <br>

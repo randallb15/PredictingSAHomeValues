@@ -122,7 +122,7 @@ def predict():
     N = str(Neighborhood)
 #    return oneline
 #    return '${}'.format(out, N)
-    return render_template('index.html', locations_list=locations_list)
+    return render_template('index.html', output=out)
 
 if __name__ == '__main__':
     #app.static_folder = 'static'

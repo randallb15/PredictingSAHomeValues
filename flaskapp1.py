@@ -22,18 +22,6 @@ locations_list.sort()
 zips_list = flaskdf['ZIP OR POSTAL CODE'].unique()
 zips_list.sort()
 
-
-#N = random.choice(locations_list)
-
-
-
-# # load the pickled training data to display with prediction
-# with open('data/trainXY.pkl', 'rb') as f:
-#     trainXY = pickle.load(f)
-
-# trainX = trainXY[:,:2]
-# trainY = trainXY[:,2]
-
 # Home page with form on it to submit new data
 @app.route('/')
 def get_new_data():
@@ -86,43 +74,10 @@ def predict():
     # predict on the new data
     Y_pred = model.predict(oneline_array)
 
-    '''
-    # for plotting 
-    X_0 = trainX[trainY == 0] # class 0
-    X_1 = trainX[trainY == 1] # class 1
-    X_2 = trainX[trainY == 2] # class 2
-    
-    # color-coding prediction 
-    if Y_pred[0] == 0:
-        cp = 'b'
-    elif Y_pred[0] == 1:
-        cp = 'r'
-    else:
-        cp = 'g'
-
-    if plt:
-        plt.clf() # clears the figure when browser back arrow used to enter new data
-
-    plt.scatter(X_0[:, 0], X_0[:, 1], c='b', edgecolors='k', label = 'class 0')
-    plt.scatter(X_1[:, 0], X_1[:, 1], c='r', edgecolors='k', label = 'class 1')
-    plt.scatter(X_2[:, 0], X_2[:, 1], c='g', edgecolors='k', label = 'class 2')
-    plt.scatter(X_n[:, 0], X_n[:, 1], c=cp, edgecolors='k', marker = 'd', \
-        s=100, label = 'prediction')
-    plt.xlabel('Sepal length')
-    plt.ylabel('Sepal width')
-    plt.title('Prediction plotted with training data')
-    plt.legend()
-        
-    image = BytesIO()
-    plt.savefig(image)
-    out = image.getvalue(), 200, {'Content-Type': 'image/png'}
-    '''
-    
     out = str(Y_pred)
     N = str(Neighborhood)
-#    return oneline
-#    return '${}'.format(out, N)
-    return render_template('index.html', output=out)
+
+    return render_template('index.html', output=out[1:len(out)-1])
 
 if __name__ == '__main__':
     #app.static_folder = 'static'

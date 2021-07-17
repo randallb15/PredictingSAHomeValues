@@ -108,7 +108,27 @@ The most interesting insight I found from this analysis was when square feet was
 
 I ran a series of different models on my data to try to get the best performing model.  I used Linear Regression, an ElasticNet Regression (along with associated Lasso and Ridge regressions), a Gradient Boosted Trees Regression model, and a Random Forest Regressor model.
 
-After running different models and adjusting hyperparameters, I found that a Random Forest Regressor gave me the best performance.  I measured performance in a few different ways.  The first two ways I used to measure performance was the Mean Squared Error and R^2 values.  These are standard ways to measure performance of a regression model in the statistics world.  The last way I measured the performance of my model was taken from the way that Zillow measures the performance of their Zestimate model.  
+After running different models and adjusting hyperparameters, I found that a Random Forest Regressor gave me the best performance.  I measured performance in a few different ways.  The first two ways I used to measure performance was the Mean Squared Error and R^2 values.  These are standard ways to measure performance of a regression model in the statistics world.  The last way I measured the performance of my model was taken from the way that Zillow measures the performance of their Zestimate model.  The accuracies o their model are explained here: https://www.zillow.com/z/zestimate/.
+
+Since I was predicting houses in San Antonio, and the model performance for the Zestimate for San Antonio was readily available.  It was an easy comparison.  
+
+The Zestimate model has three categories for comparison that I wanted to look at: Within 5% of Sales Price, Within 10% of Sales Price, and Within 20% of Sales Price.  For San Antonio, the Zestimate performance is as follows:
+
+Within 5% of Sales Price: 86.8%
+
+Within 10% of Sales Price: 96.1%
+
+Within 20% of Sales Price: 98.9%
+
+The Zestimate model performs relatively well in San Antonio.  The national average percentages for the Zestimate are:
+
+Within 5% of Sales Price: 82.2%
+
+Within 10% of Sales Price: 95.1%
+
+Within 20% of Sales Price: 98.8%
+
+Getting a home estimate within 5% of the final sales price proved very difficult.  The Zestimate performs 
 
 
 

@@ -102,13 +102,13 @@ I also ran both analyses with the rooms variable removed.
 
 ![Permutation Importances](img/permimportances3.png)
 
-The most interesting insight I found from this analysis was when square feet was removed.  The importance of the other variables really showed themselves.  Lot size and zip code were now important to the price prediction.  Also, even with square feet removed, month and year had little effect on price.  This was surprising to me, since I was under the impression that prices had risen dramatically in the last year or so.  
+The most interesting insight I found from this analysis was when square feet was removed, the importance of the other variables really showed themselves.  Lot size and zip code were now important to the price prediction.  Also, even with square feet removed, month and year had little effect on price.  This was surprising to me, since I was under the impression that prices had risen dramatically in the last year or so.  Something to look at in the future would be whether combining these two features together would produce better performance.
 
 ## The Model
 
 I ran a series of different models on my data to try to get the best performing model.  I used Linear Regression, an ElasticNet Regression (along with associated Lasso and Ridge regressions), a Gradient Boosted Trees Regression model, and a Random Forest Regressor model.
 
-After running different models and adjusting hyperparameters, I found that a Random Forest Regressor gave me the best performance.  I measured performance in a few different ways.  I used the Mean Squared Error and R^2 values as well as how close to 
+After running different models and adjusting hyperparameters, I found that a Random Forest Regressor gave me the best performance.  I measured performance in a few different ways.  The first two ways I used to measure performance was the Mean Squared Error and R^2 values.  These are standard ways to measure performance of a regression model in the statistics world.  The last way I measured the performance of my model was taken from the way that Zillow measures the performance of their Zestimate model.  
 
 
 

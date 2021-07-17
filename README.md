@@ -80,6 +80,11 @@ It was important to look at which of these features may be highly correlated and
 
 Since beds and baths are highly correlated, I combined them into one feature, called rooms.  I also decided to run a feature importance and permutation importance with square feet taken out.
 
+A correlation matrix with all the correlations (and bedrooms and bathrooms combined into one feature called rooms) is shown below:
+
+![Correlations](img/heatmap.png)
+
+
 ### Feature Importances
 
 When looking at feature importances, highly-correlated features can skew the results.  So I ran the importance a few different ways.
@@ -128,7 +133,7 @@ Within 10% of Sales Price: 95.1%
 
 Within 20% of Sales Price: 98.8%
 
-Getting a home estimate within 5% of the final sales price proved very difficult.  The Zestimate performs 
+Getting a home estimate within 5% of the final sales price proved very difficult.  
 
 
 

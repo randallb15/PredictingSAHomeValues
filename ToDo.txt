@@ -11,3 +11,5 @@ Still to do:
 
 As of 05-06
 1. get API working to translate address to latitude and longitude
+
+- add holdout set for train-test-splits that don't have cross-validation
